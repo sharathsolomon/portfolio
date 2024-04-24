@@ -1,10 +1,15 @@
+import React from 'react';
+import '../css/home.css'; // This imports the CSS specific to the Home component
+
 export default function Home() {
-    return (
-        <div>
-            <h1>Hi, I'm Sharath Varghese Solomon!</h1>
-            <h1>Data Scientist</h1>
-            <img src={process.env.PUBLIC_URL + '/sharath.jpeg'} alt="Hero" style={{ width: '10%', height: '10%' }} />
-            <p>This is my personal portfolio where I showcase my projects and skills.</p>
-        </div>
-    );
+  return (
+    <div className="home-container">
+      <h1>Welcome to My Portfolio</h1>
+      <div className="navigation-links">
+        <a href="/about" className="navigation-link">About</a>
+        <a href="/portfolio" className="navigation-link">Portfolio</a>
+        <a href="/resume" className="navigation-link">Resume</a>
+      </div>
+    </div>
+  );
 }

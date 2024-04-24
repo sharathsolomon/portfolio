@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -10,27 +11,14 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Portfolio from './pages/Portfolio';
 import Resume from './pages/Resume';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <nav>
-          <ul>
-            <li>
-              <NavLink to="/" end>Home</NavLink>
-            </li>
-            <li>
-              <NavLink to="/about">About</NavLink>
-            </li>
-            <li>
-              <NavLink to="/resume">Resume</NavLink>
-            </li>
-            <li>
-              <NavLink to="/portfolio">Portfolio</NavLink>
-            </li>
-          </ul>
-        </nav>
+        <Header/>
         <div className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -39,6 +27,7 @@ function App() {
             <Route path="/portfolio" element={<Portfolio />} />            
           </Routes>
         </div>
+        <Footer/>
       </div>
     </Router>
   );

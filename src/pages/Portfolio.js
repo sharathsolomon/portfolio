@@ -10,7 +10,21 @@ export default function Portfolio() {
 
     const githubUsername = 'sharathsolomon'; 
 
-    const mediumUsername = 'sharathsolomon'
+    const mediumUsername = 'sharathsolomon';
+
+    const [selectedProject, setSelectedProject] = useState('');
+
+    const handleSelectChange = (event) => {
+    setSelectedProject(event.target.value);
+    };
+
+    const handleSubmit = (event) => {
+    event.preventDefault();
+    if (selectedProject) {
+        const element = document.getElementById(selectedProject);
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    };
 
 
     useEffect(() => {
@@ -47,10 +61,22 @@ export default function Portfolio() {
     return (
         <div>
             <h1>Portfolio</h1>
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="project-selector">Select a Project:</label>
+                <select id="project-selector" onChange={handleSelectChange} value={selectedProject}>
+                    <option value="">--Select a Project--</option>
+                    {articles.map((article, index) => (
+                    <option key={index} value={article.title.replaceAll(' ', '-').toLowerCase()}>
+                        {article.title}
+                    </option>
+                    ))}
+                </select>
+                <button type="submit">Go to Project</button>
+            </form>
             <h2>GitHub Repositories</h2>
             <ul>
                 {repos.map(repo => (
-                    <li key={repo.id}>
+                    <li key={repo.id} id={repo.name.replaceAll(' ', '-').toLowerCase()}>
                         <a href={repo.html_url} target="_blank" rel="noopener noreferrer">{repo.name}</a>
                         - {repo.description}
                     </li>
@@ -60,11 +86,11 @@ export default function Portfolio() {
             <h2>Medium Articles</h2>
             <div>
                 {articles.map((article, index) => (
-                    <div key={index}>
+                    <div key={index} id={article.title.replaceAll(' ', '-').toLowerCase()}>
                         <a href={article.link} target="_blank" rel="noopener noreferrer">
                             <h3>{article.title}</h3>
                             <p></p>
-                            <img src={extractImageUrl(article.description)} alt={article.title} style={{ width: '30%', height: '30%' }} />
+                            <img src={extractImageUrl(article.description)} alt={article.title} style={{ width: '50%', height: '50%' }} />
                             <p>Published on: {new Date(article.pubDate).toLocaleDateString()}</p>
                         </a>
                         {article_summary[index] && <p>{article_summary[index]}</p>}

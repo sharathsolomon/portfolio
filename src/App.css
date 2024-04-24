@@ -1,5 +1,42 @@
 .App {
-  text-align: center;
+  display: flex;
+  min-height: 100vh;
+  text-align: left; /* Change from center to default left alignment */
+}
+
+/* Sidebar styles */
+nav {
+  background-color: #f0f0f0;
+  padding: 10px;
+  width: 200px;
+  height: 100vh;
+  position: fixed; /* Keep the sidebar fixed on the side */
+  overflow-y: auto; /* Allow scrolling within the sidebar if necessary */
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0; /* Reset margin for consistency */
+}
+
+nav ul li a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+nav ul li a.active {
+  background-color: #ddd;
+}
+
+/* Main content area, adjusted to not overlap with the sidebar */
+.main-content {
+  margin-left: 200px; /* Offset by the width of the sidebar */
+  padding: 20px;
+  width: calc(100% - 200px); /* Reduce the width of the main content area by the width of the sidebar */
+  overflow: auto; /* Scrollable content area */
 }
 
 .App-logo {

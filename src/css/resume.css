@@ -1,0 +1,56 @@
+.resume-container .card-header {
+    background-color: #030303
+}
+
+
+.resume-text-left {
+    text-align: left; /* Aligns text to the left for all child elements */
+  }
+  
+
+.responsive-video {
+    max-width: 560px; /* Maximum video width */
+    width: 100%; /* Make width responsive */
+    aspect-ratio: 16 / 9; /* Maintain a 16:9 aspect ratio */
+}
+
+
+/* Resume.css */
+
+/* Apply dark theme to all cards */
+.card {
+    background-color: #333; /* Dark background for the card */
+    color: #fff; /* Light text for readability */
+    border: 1px solid #444; /* Border for the card */
+  }
+  
+  .card-header {
+    background-color: #222; /* Darker background for the header */
+    border-bottom: 1px solid #444;
+  }
+
+  .card-body {
+    padding: 0 !important; /* The !important flag ensures the override works, but use it judiciously */
+  }
+
+  .card-subtitle + .card-subtitle {
+    margin-top: 0.5rem; /* Adjust the value as needed */
+  }
+  
+  /* Bullets for list group items */
+  .list-group-item {
+    position: relative;
+    padding-left: 2rem; /* Provide space for bullets */
+  }
+  
+  .list-group-item::before {
+    content: "•"; /* Unicode for bullet symbol */
+    color: #272b31; /* Bullet color */
+    font-size: 1.5em; /* Larger bullet size */
+    position: absolute;
+    left: 0.5rem; /* Position from the left */
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  

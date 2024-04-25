@@ -1,0 +1,51 @@
+/* About.css */
+.about-container {
+    background-color: #343a40;
+    color: #fff;
+  }
+  
+  /* Adjust the size of the image as necessary */
+  .about-image {
+    width: 75%;
+    height: auto;
+    border: 15px solid #d1d6d9; /* Thick white border */
+    border-radius: 50%; /* To maintain the circular shape */
+
+  }
+  
+  .about-row {
+    min-height: 80vh;
+  }
+  
+  .text-container {
+    text-align: left; /* Align text to the left */
+  }
+
+.text-container h1,
+.text-container h6 {
+  font-style: italic;
+}
+ /* Custom bullet point styles */
+.text-container p::before {
+    content: '✓'; /* Unicode character for checkmark */
+    color: #d1d6d9; /* Example blue color for the checkmark, you can adjust the color code as needed */
+    font-weight: bold; /* Makes the checkmark bold */
+    display: inline-block; /* Needed to add content before an element */
+    font-size: 1.5em; /* Larger font size for the bullet */
+    margin-right: 0.5em; /* Space between the bullet and the text */
+    /* Vertically align to the middle of the text, adjust as needed */
+    position: relative;
+  }
+
+  .custom-btn {
+    background-color: #6c757d; /* Bootstrap's secondary color, for example */
+    border: 2px solid #343a40; /* Dark border */
+    padding: 15px 18px; /* Increase padding to make the button larger */
+    font-size: 1.5em;
+  }
+  
+  .custom-btn:hover {
+    background-color: #5a6268; /* A slightly darker shade for hover */
+    border-color: #282c34; /* Darker border on hover */
+  }
+  

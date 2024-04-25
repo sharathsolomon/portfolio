@@ -1,0 +1,137 @@
+{
+    "contact": {
+      "email": "mesharathsol@gmail.com",
+      "phone": "+61424802806",
+      "linkedin": "https://www.linkedin.com/in/sharath-solomon-0a5436112",
+      "github": "github.com/sharathsolomon"
+    },
+    "summary": "Highly skilled and results-driven data scientist with experience in working on real-world problems. Proficient in leveraging NLP techniques to extract insights from textual data and develop advanced NLP applications. Proven track record of successfully leading projects, designing and implementing innovative solutions, and collaborating with cross-functional teams. Adept at training and fine-tuning NLP models for various applications, with a strong focus on data analysis and drawing meaningful conclusions. Demonstrated expertise in developing knowledge mining systems, semantic search engines, and QA systems. Experienced in API development, containerization, and cloud deployment. Effective communicator with a talent for addressing client's technical concerns and leading data migration projects.",
+    "experience": [
+      {
+        "role": "Associate Data Scientist",
+        "company": "Celebal Technologies",
+        "location":"Jaipur, India",
+        "from": "October 2021",
+        "to": "May 2023",
+        "details": [
+          "Conducted comprehensive data analysis on textual data, extracting key insights and drawing actionable conclusions to support decision-making processes.",
+          "Trained and fine-tuned numerous NLP models for various applications, including sentiment analysis, entity extraction, text classification, and QA systems.",
+          "Spearheaded the development of a knowledge mining system that efficiently extracted data from PDFs and images, contributing to increased productivity and data accessibility.",
+          "Spearheaded the development of a knowledge mining system that efficiently extracted data from PDFs and images, contributing to increased productivity and data accessibility.",
+          "Designed and implemented a robust document semantic search system with filtering and sorting capabilities using Azure services, enhancing the efficiency of information retrieval.",
+          "Created APIs using Flask to facilitate seamless communication between the backend and frontend/UI, optimizing user experience and interaction with NLP-powered applications.",
+          "Successfully containerized multiple applications using Docker and deployed them in Azure Container Instances (ACI) and Azure Kubernetes Service (AKS), improving scalability and ease of maintenance.",
+          "Acted as the primary technical point of contact in client calls, addressing technical queries, and ensuring client satisfaction and project success.",
+          "Led a team in a data and pipeline migration project, demonstrating strong leadership skills and expertise in streamlining processes for optimal outcomes. Effectively managed client interactions during the project's lifecycle."
+        ]
+      },
+      {
+        "role": "Graduate Engineer Trainee",
+        "company": "Dynamatic Technologies",
+        "location":"Bangalore, India",
+        "from": "April 2019",
+        "to": "July 2020",
+        "details": [
+          "Involved in the R&D division for designing gear pumps and managed around 20 projects.",
+          "Designed a variety of gear pumps and prepared 3D models and 2D drawings using Creo 5.0.",
+          "Managed data using PLM software Windchill, followed up products manufacture and its inspection.",
+          "Gained experience in the design of various mechanical components considering their functionality and assembly.",
+          "Contributed to finding solutions to the design failures and acquired knowledge of materials used and different manufacturing processes."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Master of Information Technology (Data Science Major)",
+        "institution": "Queensland University of Technologies (QUT)",
+        "from": "July 2023",
+        "to": "present",
+        "details":["Gaining advanced knowledge, based on research practices, in Information Technology (IT) discipline specializing in data science, and developing the ability to formulate and develop best practice IT strategies and solutions."]
+      },
+      {
+        "degree": "Applied AI Course",
+        "institution": "Applied Roots",
+        "from": "July 2020",
+        "to": "August 2021",
+        "details":["One-year in-depth course on Machine Learning and Deep Learning with practical approaches to solving real world problems.",
+        "Real world case studies include Microsoft malware detection, self-driving cars, music generation using Deep Learning, English to Italian translation using attention mechanism etc."]
+ 
+      },
+      {
+        "degree": "Bachelor of Mechanical Engineering",
+        "institution": "Cochin University of Science and Technologies",
+        "from": "June 2014",
+        "to": "July 2018",
+        "details":["CGPA: 8.81/10 equivalent to 6.2/7 as per Australian University standards."]
+      }
+    ],
+    
+    "skills": [
+        {
+        "category": "ML/DL Frameworks",
+        "details": ["Tensorflow", "Keras", "Pytorch", "Scikit-learn"]
+        },
+        {
+        "category": "Programming Languages",
+        "details": ["C#", "Python", "React"]
+        },
+        {
+        "category": "Cloud",
+        "details": ["Microsoft Azure"]
+        },
+        {
+        "category": "Web Frameworks",
+        "details": ["Flask"]
+        },
+        {
+        "category": "Containerization",
+        "details": ["docker"]
+        },
+        {
+        "category": "Version Control",
+        "details": ["Git"]
+        },
+        {
+        "category": "Database Management",
+        "details": ["SQL, MongoDB"]
+        }
+    ],
+
+    "certifications": [
+      {
+        "title": "Azure Fundamentals",
+        "issuer": "Microsoft",
+        "date": "2021",
+        "link":"https://www.credly.com/badges/8b94a1a9-f5c2-4725-8f39-cebb37fcbdb6/public_url"
+      },
+      {
+        "title": "Azure Data Scientist Associate",
+        "issuer": "Microsoft",
+        "date": "2021",
+        "link":"https://www.credly.com/badges/d142eb0f-8b89-46f9-80ad-27ad44a7c464"
+      },
+      {
+        "title": "Azure AI Engineer Associate",
+        "issuer": "Microsoft",
+        "date": "2021",
+        "link":"https://www.credly.com/badges/2126f0e3-832d-4c22-a70a-6420eb45832a"
+      },
+      {
+        "title": "Applied Machine Learning Course",
+        "issuer": "Applied Roots",
+        "date": "2021",
+        "link":"https://www.appliedaicourse.com/certificate/92843772e2"
+      },
+      {
+        "title": "Machine Learning Course by Andrew Ng",
+        "issuer": "Stanford University Online Certification",
+        "date": "2020",
+        "link":"https://www.coursera.org/account/accomplishments/verify/N5GT6565XRXA?utm_campaign=sharing_cta&utm_content=cert_image&utm_medium=certificate&utm_product=course&utm_source=link"
+      }
+    ],
+    "achievements": [
+        "Cash prize for securing 38th position among 500 competitors in an AI technical blog competition.",
+        "Statewide 8th rank for B. Tech in mechanical engineering among all the engineering institutions under CUSAT University in 2018.",
+        "Scholarship in the State level screening examination for engineering studies."]
+  }
+  

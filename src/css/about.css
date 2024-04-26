@@ -49,3 +49,10 @@
     border-color: #282c34; /* Darker border on hover */
   }
   
+  .icon-spacing {
+    color: #eeeff2;
+}
+
+.icon-spacing:hover {
+  color: #777879;
+}

@@ -34,6 +34,18 @@ export default function Resume() {
                 </Col>
             </Row>
             <Row>
+                <div>
+                    <h2>Contact Details</h2>
+                    <ul>
+                        {resumeData.contact.map((detail, index) => (
+                            <li>
+                                <p> {detail.entity}: {detail.value} </p>    
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </Row>
+            <Row>
                 <Col>
                     <h2>Work Experience</h2>
                     {resumeData.experience.map((job, index) => (
@@ -88,18 +100,18 @@ export default function Resume() {
 
                 <Col md={6} className="d-flex">
                     <Card className="mb-3 flex-fill">
-                            <Card.Header><strong>Certifications</strong></Card.Header>
-                            <ListGroup variant="flush">
-                                {resumeData.certifications.map((cert, index) => (
-                                    <ListGroup.Item key={index}>
-                                        <a href={cert.link} target="_blank" rel="noopener noreferrer">
-                                            {cert.title}
-                                        </a>
-                                        {' '} - issued by <em>{cert.issuer}, {cert.date}</em>
-                                    </ListGroup.Item>
-                                ))}
-                            </ListGroup>
-                        </Card>
+                    <Card.Header><strong>Certifications</strong></Card.Header>
+                        <ListGroup variant="flush">
+                            {resumeData.certifications.map((cert, index) => (
+                                <ListGroup.Item key={index}>
+                                    <a href={cert.link} target="_blank" rel="noopener noreferrer">
+                                        {cert.title}
+                                    </a>
+                                    {' '} - issued by <em>{cert.issuer}, {cert.date}</em>
+                                </ListGroup.Item>
+                            ))}
+                        </ListGroup>
+                    </Card>
                 </Col>   
             </Row>
 

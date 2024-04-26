@@ -1,6 +1,9 @@
 import React from 'react';
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import resumeData from '../resumeData.json'; 
 import '../css/about.css'; 
 
 const About = () => {
@@ -17,18 +20,22 @@ const About = () => {
         </Col>
         <Col md={8}>
             <div className="text-container">
-                <h1>Hi, I'm Sharath Varghese Solomon!</h1>
-                <p>Profession: Data Scientist</p>
-                <p>Years of experience: 2.5 years</p>
-                <p>Nationality: Kerala, India (I'm a Mallu)</p>
-                <p>Current Residence: Brisbane, Australia</p>
-                <p>Age: 28 yers</p>
-                <p>Gender: Male</p>
-                <p>Marital Status: Single</p>
+                <h1>Hi, I'm {resumeData.name}!</h1>
+                {resumeData.personal_details.map((detail,index)=>(
+                  <p>{detail.entity}: {detail.value}</p>
+                ))}
                 <h6>This is my personal portfolio where I showcase my projects and skills.</h6>
-                <Link to="/resume" >
-                    <Button className="custom-btn">Check out my resume</Button>
-                </Link>
+                <div className="d-flex align-items-center">
+                  <Link to="/resume">
+                    <Button className="custom-btn me-3">Check out my resume</Button>
+                  </Link>
+                  <a href="https://github.com/sharathsolomon" target="_blank" rel="noopener noreferrer" className="icon-spacing me-3">
+                    <FontAwesomeIcon icon={faGithub} size="3x" />
+                  </a>
+                  <a href="https://linkedin.com/in/sharathsolomon" target="_blank" rel="noopener noreferrer" className="icon-spacing">
+                    <FontAwesomeIcon icon={faLinkedin} size="3x" />
+                  </a>
+                </div>
             </div>
         </Col>
       </Row>

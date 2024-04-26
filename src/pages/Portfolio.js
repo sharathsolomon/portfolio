@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { Container, Row, Col, Card, Button, Form } from 'react-bootstrap';
 import resumeData from '../resumeData.json'; 
+import '../css/portfolio.css'
 
 const article_summary = resumeData.projects;
 
@@ -10,6 +12,20 @@ export default function Portfolio() {
     const githubUsername = 'sharathsolomon';
     const mediumUsername = 'sharathsolomon';
 
+    const [selectedProject, setSelectedProject] = useState('');
+
+    const handleSelectChange = (event) => {
+    setSelectedProject(event.target.value);
+    };
+
+    const handleSubmit = (event) => {
+    event.preventDefault();
+    if (selectedProject) {
+        const element = document.getElementById(selectedProject);
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    };
+    
     useEffect(() => {
         const fetchData = async () => {
           try {
@@ -40,30 +56,75 @@ export default function Portfolio() {
     };
 
     return (
-        <div>
-            <h1>Projects</h1>
-            <div>
-                {articles.map((article, index) => {
-                    const repo = repos[index]; // Get the corresponding repo by index
-                    return (
-                        <div key={index} id={article.title.replaceAll(' ', '-').toLowerCase()}>
-                            <h2>{article.title}</h2>
-                            <img src={extractImageUrl(article.description)} alt={article.title} />
-                            <p>Published on: {new Date(article.pubDate).toLocaleDateString()}</p>
-                            {repo && (
-                                <p>
-                                    <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
-                                        {repo.name} GitHub Repository
-                                    </a>
-                                </p>
-                            )}
-                            <p>{article_summary[index]}</p>
-                            <a href={article.link} target="_blank" rel="noopener noreferrer">Read More</a>
-                            {/* Additional text can be added here */}
-                        </div>
-                    );
-                })}
-            </div>
-        </div>
+        <Container className="my-5">
+            <Row className="mb-3">
+                <Col>
+                    <h1 className="text-center">Projects</h1>
+                </Col>
+            </Row>
+
+            {/* Convert to React Bootstrap Form */}
+            <Form onSubmit={handleSubmit} className="d-flex align-items-center mb-3">
+                <Form.Label htmlFor="project-selector" className="me-2">
+                    <strong>Select a Project:</strong>
+                </Form.Label>
+                <Form.Control 
+                    as="select" 
+                    id="project-selector" 
+                    onChange={handleSelectChange} 
+                    value={selectedProject}
+                    className="me-2 custom-width"
+                >
+                    <option value="">--Select a Project--</option>
+                    {articles.map((article, index) => (
+                    <option key={index} value={article.title.replaceAll(' ', '-').toLowerCase()}>
+                        {article.title}
+                    </option>
+                    ))}
+                </Form.Control>
+                <Button variant="dark" type="submit">
+                    Go to Project
+                </Button>
+            </Form>
+
+
+            {articles.map((article, index) => {
+                const repo = repos[index]; // Get the corresponding repo by index
+                const imageUrl = extractImageUrl(article.description);
+
+                return (
+                    <Row key={index} id={article.title.replaceAll(' ', '-').toLowerCase()} className="mb-4 align-items-stretch">
+                        <Col lg={6} className="d-flex">
+                            <Card>
+                                <Card.Img variant="top" src={imageUrl} alt={article.title} />
+                            </Card>
+                        </Col>
+                        <Col lg={6} className="d-flex">
+                            <Card className="h-100">
+                                <Card.Body>
+                                    <Card.Title className="card-title-black">{article.title}</Card.Title>
+                                    <Card.Text  className="article-text">
+                                        {article_summary[index]}
+                                    </Card.Text>
+                                    <Card.Text>
+                                        <strong>Published on: </strong>{new Date(article.pubDate).toLocaleDateString()}
+                                    </Card.Text>
+                                    <div className="d-inline-block ms-auto mb-2"> 
+                                        {repo && (
+                                            <Button variant="dark" href={repo.html_url} target="_blank" className="me-2">
+                                            GitHub
+                                            </Button>
+                                        )}
+                                        <Button variant="dark" href={article.link} target="_blank">
+                                            Read More
+                                        </Button>
+                                    </div>   
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    </Row>
+                );
+            })}
+        </Container>
     );
 }

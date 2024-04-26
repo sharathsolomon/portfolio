@@ -1,10 +1,25 @@
 {
-    "contact": {
-      "email": "mesharathsol@gmail.com",
-      "phone": "+61424802806",
-      "linkedin": "https://www.linkedin.com/in/sharath-solomon-0a5436112",
-      "github": "github.com/sharathsolomon"
-    },
+    "name":"Sharath Varghese Solomon",
+    "contact": [{"entity":"Email",
+                "value":"mesharathsol@gmail.com"},
+                {"entity":"Phone",
+                "value":"+61424802806"},
+                {"entity":"Address",
+                "value":"108 Nyleta Street, Coopers Plains, QLD, 4108"}],
+    "personal_details":[{"entity":"Profession",
+                        "value":"Data Scientist"},
+                        {"entity":"Years of experience",
+                        "value":"2.5 years"},
+                        {"entity":"Nationality",
+                        "value":"Kerala, India"},
+                        {"entity":"Current Residence",
+                        "value":"Brisbane, Australia"},
+                        {"entity":"Age",
+                        "value":"28 years"},
+                        {"entity":"Gender",
+                        "value":"Male"},
+                        {"entity":"Marital Status",
+                        "value":"Single"}],
     "summary": "Highly skilled and results-driven data scientist with experience in working on real-world problems. Proficient in leveraging NLP techniques to extract insights from textual data and develop advanced NLP applications. Proven track record of successfully leading projects, designing and implementing innovative solutions, and collaborating with cross-functional teams. Adept at training and fine-tuning NLP models for various applications, with a strong focus on data analysis and drawing meaningful conclusions. Demonstrated expertise in developing knowledge mining systems, semantic search engines, and QA systems. Experienced in API development, containerization, and cloud deployment. Effective communicator with a talent for addressing client's technical concerns and leading data migration projects.",
     "experience": [
       {

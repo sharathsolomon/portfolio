@@ -37,20 +37,21 @@ npm install --save @fortawesome/react-fontawesome
 ```
 ## Application Architecture
 The repository has the following major folder structure
-├── css #folder containing the css files used for styling the pages in the website
+project-root
+ ├── css #folder containing the css files used for styling the pages in the website
 │ ├── about.css 
 │ ├── home.css 
 │ ├── portfolio.css 
 │ └── resume.css 
-├── images # Images used in the webpages are stored in this folder
-├── pages # Contains the .js files for the 4 pages in the website
+ ├── images # Images used in the webpages are stored in this folder
+ ├── pages # Contains the .js files for the 4 pages in the website
 │ ├── About.js
 │ ├── Home.js
 │ ├── Portfolio.js
 │ └── Resume.js
-└── components # Contains the .js files for header and footer which is globally applied to the entire website
-├── Footer.js
-└── Header.js
+ ├── components # Contains the .js files for header and footer which is globally applied to the entire website
+│ ├── Header.js
+│ ├── Footer.js
 The website has been meticulously crafted using modern React development techniques, including advanced React components and essential hooks such as useState and useEffect. These features have been instrumental in creating a dynamic and responsive user interface. The application leverages the fetch function to seamlessly retrieve data from GitHub, Medium, and YouTube, integrating various APIs to enrich the content and functionality of the site. Additionally, the site utilizes React Router for efficient navigation and Bootstrap for responsive design, ensuring an optimal viewing experience across all devices. The architecture is designed for scalability and maintainability, making it an excellent foundation for future enhancements and updates. 
 
 Secrets are handled by saving them in .env file and is added to the .gitignore file to avoid pushing in Git 

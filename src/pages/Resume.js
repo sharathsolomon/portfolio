@@ -4,22 +4,31 @@ import { Container, Row, Col, ListGroup, Badge, Card, CardBody } from 'react-boo
 import '../css/resume.css'; 
 export default function Resume() {
     const [videoDetails, setVideoDetails] = useState(null);
-    const apiKey = 'AIzaSyDEaqWT1ZmTvcMMa6jKqOBYsgI-GLXUeyA'; // Replace with your actual API key
-    const videoId = 'N0ibLUHAGMU'; // Replace with the ID of the video you want to display
+    const [videoError, setVideoError] = useState('');
+    const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY; 
+    console.log("API Key is:");
+    console.log(apiKey);
+    const videoId = process.env.REACT_APP_YOUTUBE_VIDEOID; 
     const apiUrl = `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${apiKey}&part=snippet,contentDetails,statistics,status`;
 
     useEffect(() => {
         fetch(apiUrl)
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
             .then(data => {
-                // Check if the items array contains any video
                 if (data.items.length === 0) {
                     throw new Error('Video not found');
                 }
                 setVideoDetails(data.items[0]);
+                setVideoError(''); // Clear any previous errors if the fetch is successful
             })
             .catch(error => {
-                console.error('Error fetching video details: ', error);
+                console.error('Error fetching video details:', error);
+                setVideoError(error.message);
             });
     }, [apiUrl]);
 
@@ -132,22 +141,30 @@ export default function Resume() {
             </Row>            
 
             <Row>
-                <Col md={6}>
-                    <h2>Success Stories</h2>
-                    {videoDetails && (
-                        <Card className="mb-3">   
+            <Col md={6}>
+                <h2>Success Stories</h2>
+                {videoError ? (
+                    <div className="alert alert-danger" role="alert">
+                        Error loading video: {videoError}
+                    </div>
+                ) : (
+                    videoDetails && (
+                        <Card className="mb-3">
                             <Card.Header>{videoDetails.snippet.title}</Card.Header>
                             <ListGroup variant="flush">
-                                <iframe 
+                                <iframe
                                     className="responsive-video"
-                                    src={videoSrc} 
-                                    title="YouTube video player" 
+                                    src={videoSrc}
+                                    title="YouTube video player"
+                                    frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen>
                                 </iframe>
                             </ListGroup>
                         </Card>
-                    )}
-                </Col>
+                    )
+                )}
+            </Col>
             </Row>
         </Container>
     );

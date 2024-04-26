@@ -8,9 +8,10 @@ const article_summary = resumeData.projects;
 export default function Portfolio() {
     const [repos, setRepos] = useState([]);
     const [articles, setArticles] = useState([]);
+    const [articleError, setArticleError] = useState('');
 
-    const githubUsername = 'sharathsolomon';
-    const mediumUsername = 'sharathsolomon';
+    const githubUsername = process.env.REACT_APP_GITHUB_USERNAME;
+    const mediumUsername = process.env.REACT_APP_MEDIUM_USERNAME;
 
     const [selectedProject, setSelectedProject] = useState('');
 
@@ -28,22 +29,35 @@ export default function Portfolio() {
     
     useEffect(() => {
         const fetchData = async () => {
-          try {
-            const repoResponse = await fetch(`https://api.github.com/users/${githubUsername}/repos`);
-            const repoData = await repoResponse.json();
-            setRepos(repoData);
-      
-            const rssUrl = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${mediumUsername}`;
-            const articleResponse = await fetch(rssUrl);
-            const articleData = await articleResponse.json();
-            if (articleData.items) {
-              setArticles(articleData.items);
+            try {
+                const repoResponse = await fetch(`https://api.github.com/users/${githubUsername}/repos`,  { cache: 'no-cache' });
+                if (!repoResponse.ok) {
+                    throw new Error('Failed to fetch repositories');
+                }
+                const repoData = await repoResponse.json();
+                setRepos(repoData);
             }
-          } catch (error) {
-            console.error('Error fetching data:', error);
-          }
+            catch (error) {
+                console.error('Error fetching repositories:', error);
+            }
+
+            try {
+                const rssUrl = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${mediumUsername}`;
+                const articleResponse = await fetch(rssUrl, { cache: 'no-cache' });
+                if (!articleResponse.ok) {
+                    throw new Error('Failed to fetch articles');
+                }
+                const articleData = await articleResponse.json();
+                if (articleData.items) {
+                    setArticles(articleData.items);
+                  }
+                setArticleError('');
+            }
+            catch (error) {
+                console.error('Error fetching articles:', error);
+                setArticleError(error.message);
+            }
         };
-      
         fetchData();
       }, [githubUsername, mediumUsername]);
       
@@ -88,7 +102,17 @@ export default function Portfolio() {
             </Form>
 
 
-            {articles.map((article, index) => {
+            {articleError ? (
+            <Row>
+                <Col>
+                    <div className="alert alert-danger" role="alert">
+                        Error loading articles: {articleError}
+                    </div>
+                </Col>
+            </Row>
+        ) : (
+            
+            articles.map((article, index) => {
                 const repo = repos[index]; // Get the corresponding repo by index
                 const imageUrl = extractImageUrl(article.description);
 
@@ -124,7 +148,8 @@ export default function Portfolio() {
                         </Col>
                     </Row>
                 );
-            })}
+            }
+            ))}
         </Container>
     );
 }

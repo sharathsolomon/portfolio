@@ -38,7 +38,7 @@ npm install --save @fortawesome/react-fontawesome
 ## Application Architecture
 The repository has the following major folder structure
 ```
-|   ├── css/
+|   ├── css/                 #folder containing the css files used for styling the pages in the website
 |   |   ├── about.css       
 |   |   ├── home.css        
 |   |   ├── portfolio.css   

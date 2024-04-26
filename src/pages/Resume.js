@@ -73,8 +73,8 @@ export default function Resume() {
             </Row>
 
             <Row>
-                <Col md={6}>
-                    <Card className="mb-3">
+                <Col md={6} className="d-flex">
+                    <Card className="mb-3 flex-fill">
                         <Card.Header><strong>Skills</strong></Card.Header>
                         <ListGroup variant="flush">
                             {resumeData.skills.map((skill, index) => (
@@ -86,8 +86,8 @@ export default function Resume() {
                     </Card>
                 </Col>
 
-                <Col md={6}>
-                    <Card className="mb-3">
+                <Col md={6} className="d-flex">
+                    <Card className="mb-3 flex-fill">
                             <Card.Header><strong>Certifications</strong></Card.Header>
                             <ListGroup variant="flush">
                                 {resumeData.certifications.map((cert, index) => (
@@ -106,32 +106,33 @@ export default function Resume() {
             <Row>
                 <Col >
                     <h2>Acheivements</h2>
-                    {resumeData.achievements.map((detail,index)=>(
-                        <Card key={index} className="mb-3">
-                            <CardBody>
-                                <ListGroup variant="flush">  
-                                        <ListGroup.Item key={index}>{detail}</ListGroup.Item>
-                                </ListGroup>
-                            </CardBody>
-                        </Card>
-                    ))}
+                    <Card className="mb-3">
+                        <Card.Header><strong>Awards & Scholarships</strong></Card.Header>
+                        <ListGroup variant="flush">
+                        {resumeData.achievements.map((detail,index)=>(
+                            <ListGroup.Item key={index}>
+                                {detail}
+                            </ListGroup.Item>
+                        ))}
+                        </ListGroup>
+                    </Card>
                 </Col>
             </Row>            
 
             <Row>
-                <Col>
+                <Col md={6}>
                     <h2>Success Stories</h2>
                     {videoDetails && (
-                        <Card className="mb-3">
-                            <Card.Body>
-                                <Card.Title>{videoDetails.snippet.title}</Card.Title>
+                        <Card className="mb-3">   
+                            <Card.Header>{videoDetails.snippet.title}</Card.Header>
+                            <ListGroup variant="flush">
                                 <iframe 
                                     className="responsive-video"
                                     src={videoSrc} 
                                     title="YouTube video player" 
                                     allowFullScreen>
                                 </iframe>
-                            </Card.Body>
+                            </ListGroup>
                         </Card>
                     )}
                 </Col>

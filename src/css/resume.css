@@ -5,11 +5,13 @@
 
 .resume-text-left {
     text-align: left; /* Aligns text to the left for all child elements */
+    background-color: #f5f5f5; /* Light grey; adjust the color as desired */
+    color: #212529;
   }
   
 
 .responsive-video {
-    max-width: 560px; /* Maximum video width */
+    max-width: 650px; /* Maximum video width */
     width: 100%; /* Make width responsive */
     aspect-ratio: 16 / 9; /* Maintain a 16:9 aspect ratio */
 }
@@ -36,7 +38,15 @@
   .card-subtitle + .card-subtitle {
     margin-top: 0.5rem; /* Adjust the value as needed */
   }
-  
+
+  .card .card-subtitle {
+    margin-left: 1rem; /* Adjust the value to align with the card title text */
+  }
+
+  .card .list-group {
+    flex-grow: 1; /* Allow list group to fill available space */
+    background-color: #ffffff; /* Ensure the background is white */
+  }
   /* Bullets for list group items */
   .list-group-item {
     position: relative;

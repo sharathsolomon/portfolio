@@ -16,9 +16,6 @@
     aspect-ratio: 16 / 9; /* Maintain a 16:9 aspect ratio */
 }
 
-
-/* Resume.css */
-
 /* Apply dark theme to all cards */
 .card {
     background-color: #333; /* Dark background for the card */
@@ -26,41 +23,40 @@
     border: 1px solid #444; /* Border for the card */
   }
   
-  .card-header {
-    background-color: #222; /* Darker background for the header */
-    border-bottom: 1px solid #444;
-  }
+.card-header {
+  background-color: #222; /* Darker background for the header */
+  border-bottom: 1px solid #444;
+}
 
-  .card-body {
-    padding: 0 !important; /* The !important flag ensures the override works, but use it judiciously */
-  }
+.card-body {
+  padding: 0 !important; /* The !important flag ensures the override works, but use it judiciously */
+}
 
-  .card-subtitle + .card-subtitle {
-    margin-top: 0.5rem; /* Adjust the value as needed */
-  }
+.card-subtitle + .card-subtitle {
+  margin-top: 0.5rem; /* Adjust the value as needed */
+}
 
-  .card .card-subtitle {
-    margin-left: 1rem; /* Adjust the value to align with the card title text */
-  }
+.card .card-subtitle {
+  margin-left: 1rem; /* Adjust the value to align with the card title text */
+}
 
-  .card .list-group {
-    flex-grow: 1; /* Allow list group to fill available space */
-    background-color: #ffffff; /* Ensure the background is white */
-  }
-  /* Bullets for list group items */
-  .list-group-item {
-    position: relative;
-    padding-left: 2rem; /* Provide space for bullets */
-  }
-  
-  .list-group-item::before {
-    content: "•"; /* Unicode for bullet symbol */
-    color: #272b31; /* Bullet color */
-    font-size: 1.5em; /* Larger bullet size */
-    position: absolute;
-    left: 0.5rem; /* Position from the left */
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  
-  
+.card .list-group {
+  flex-grow: 1; /* Allow list group to fill available space */
+  background-color: #ffffff; /* Ensure the background is white */
+}
+/* Bullets for list group items */
+.list-group-item {
+  position: relative;
+  padding-left: 2rem; /* Provide space for bullets */
+}
+
+.list-group-item::before {
+  content: "•"; /* Unicode for bullet symbol */
+  color: #272b31; /* Bullet color */
+  font-size: 1.5em; /* Larger bullet size */
+  position: absolute;
+  left: 0.5rem; /* Position from the left */
+  top: 50%;
+  transform: translateY(-50%);
+}
+

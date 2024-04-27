@@ -1,3 +1,13 @@
+/**
+ * Header Component
+ * 
+ * This component creates a responsive navigation bar for the website using React Bootstrap. 
+ * It utilizes the `Navbar` component to render a dark-themed navigation bar that is sticky at the top.
+ * Inside the `Navbar`, there is a `Container` which holds the `Navbar.Brand` linking to the homepage.
+ * The navigation links are wrapped inside `Navbar.Collapse` to support collapsible behavior in smaller screens.
+ * Each `Nav.Link` uses `NavLink` from `react-router-dom` for navigation, ensuring that the current path is highlighted.
+ */
+
 import React from 'react';
 import { Container, Navbar, Nav } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';

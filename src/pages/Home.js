@@ -1,5 +1,9 @@
+// Home Component
+// This component serves as the landing page of the website. It includes a welcoming header and navigation links to the About, 
+// Portfolio, and Resume pages. The styles are applied from '../css/home.css'.
+
 import React from 'react';
-import '../css/home.css'; // This imports the CSS specific to the Home component
+import '../css/home.css'; 
 
 export default function Home() {
   return (

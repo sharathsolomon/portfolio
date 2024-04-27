@@ -1,7 +1,5 @@
 /* portfolio.css */
 
-/* Style for card text */
-
 .h-100 {
     background-color: #fff !important; /* White background */
     color: #141414 !important; /* Default text color, typically dark for readability */
@@ -15,7 +13,7 @@
     width: 60%; /* or any other width */
   }
   
-  /* Style for card title */
+/* Style for card title */
 .card-title-black {
 background-color: #1e1d1d;
 color: #f8f4f4; /* Set text color to black */

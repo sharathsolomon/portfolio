@@ -1,3 +1,21 @@
+/**
+ * Portfolio component fetches and displays GitHub repositories and Medium articles.
+ * It includes an interactive form allowing the user to select a project from a dropdown menu,
+ * which scrolls the user to the selected project's detailed view upon submission.
+ *
+ * The component uses React Bootstrap for styling and layout, including Containers, Rows, Columns, Cards, and Buttons.
+ * State hooks are utilized to manage the fetched repositories, articles, error handling, and the selected project.
+ * 
+ * The GitHub and Medium usernames are fetched from environment variables, and data fetching occurs in the useEffect hook.
+ * The 'fetchData' async function is declared within useEffect and is responsible for fetching GitHub repos and Medium articles.
+ * Error handling is incorporated to manage and display fetch errors appropriately.
+ *
+ * Data is fetched from the GitHub API for repositories and the RSS2JSON service for Medium articles.
+ * Articles and repositories are displayed side by side using Bootstrap's grid system.
+ * Each article card includes an image, summary, publication date, and links to the full article and associated GitHub repository.
+ */
+
+
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card, Button, Form } from 'react-bootstrap';
 import resumeData from '../resumeData.json'; 
@@ -15,10 +33,21 @@ export default function Portfolio() {
 
     const [selectedProject, setSelectedProject] = useState('');
 
+    /**
+     * Handles changes to the project selection dropdown.
+     * Updates the `selectedProject` state with the new value from the dropdown.
+     * The change event triggered by selecting an option in the dropdown.
+     */
     const handleSelectChange = (event) => {
     setSelectedProject(event.target.value);
     };
 
+    /**
+     * Handles the form submission event.
+     * Scrolls to the DOM element that corresponds to the selected project if a project is selected.
+     * Smooth scrolling is used to improve the user experience.
+     * The submit event triggered by the form submission.
+     */
     const handleSubmit = (event) => {
     event.preventDefault();
     if (selectedProject) {
@@ -28,38 +57,41 @@ export default function Portfolio() {
     };
     
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchData = async () => { //defining an asynchronous function
             try {
-                const repoResponse = await fetch(`https://api.github.com/users/${githubUsername}/repos`,  { cache: 'no-cache' });
-                if (!repoResponse.ok) {
+                const repoResponse = await fetch(`https://api.github.com/users/${githubUsername}/repos`,  { cache: 'no-cache' }); //fetches GitHub repositories using the GitHub API
+                if (!repoResponse.ok) { //throws error if fetching fails
                     throw new Error('Failed to fetch repositories');
                 }
-                const repoData = await repoResponse.json();
-                setRepos(repoData);
+                const repoData = await repoResponse.json(); //converts the data to json
+                setRepos(repoData); //setRepos state is updated with the fetched data
             }
             catch (error) {
-                console.error('Error fetching repositories:', error);
+                console.error('Error fetching repositories:', error); //error is logged if fetching failed
             }
 
             try {
-                const rssUrl = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${mediumUsername}`;
+                //Medium does not provide a public API for fetching user articles directly. 
+                //However, Medium provides an RSS feed for each user's content, which can be used to fetch the latest articles. 
+                //You can convert the RSS feed to JSON using a third-party service like RSS2JSON, and then fetch the articles from there.
+                const rssUrl = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${mediumUsername}`; //fetching article from medium
                 const articleResponse = await fetch(rssUrl, { cache: 'no-cache' });
-                if (!articleResponse.ok) {
+                if (!articleResponse.ok) { // throws error if fetching fails
                     throw new Error('Failed to fetch articles');
                 }
-                const articleData = await articleResponse.json();
+                const articleData = await articleResponse.json(); //converts data to json
                 if (articleData.items) {
-                    setArticles(articleData.items);
+                    setArticles(articleData.items); //if fetched data has valid items, then updates the setArticles state
                   }
-                setArticleError('');
+                setArticleError(''); // Clear any previous errors if the fetch is successful
             }
             catch (error) {
-                console.error('Error fetching articles:', error);
-                setArticleError(error.message);
+                console.error('Error fetching articles:', error); //logs the error if fetching fails
+                setArticleError(error.message); //updates the setArticleError state with corresponding error
             }
         };
         fetchData();
-      }, [githubUsername, mediumUsername]);
+    }, [githubUsername, mediumUsername]); //useEffect() re-runs only when these usernames changes
       
 
     // Function to extract image URL from description HTML
@@ -76,12 +108,15 @@ export default function Portfolio() {
                     <h1 className="text-center">Projects</h1>
                 </Col>
             </Row>
-
-            {/* Convert to React Bootstrap Form */}
+            {/* The form element with an onSubmit event handler, flexbox for inline alignment, and a bottom margin */}
             <Form onSubmit={handleSubmit} className="d-flex align-items-center mb-3">
+
+                {/* Form label for the project selector dropdown, with a right margin for spacing */}
                 <Form.Label htmlFor="project-selector" className="me-2">
                     <strong>Select a Project:</strong>
                 </Form.Label>
+                
+                {/* Dropdown form control for selecting a project with a custom width class */}
                 <Form.Control 
                     as="select" 
                     id="project-selector" 
@@ -96,12 +131,13 @@ export default function Portfolio() {
                     </option>
                     ))}
                 </Form.Control>
+
                 <Button variant="dark" type="submit">
                     Go to Project
                 </Button>
             </Form>
 
-
+            {/*Conditional rendering to show error is article fetching failed, else display the articles */}
             {articleError ? (
             <Row>
                 <Col>

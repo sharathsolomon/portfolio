@@ -22,7 +22,7 @@ This project is built using React. Here is a list of major dependencies and how 
 - **React**: A JavaScript library for building user interfaces.
 - **Bootstrap**: For styling and responsive design.
 - **Fetch API**: For API calls to GitHub, Medium, and YouTube.
-- **React Router DOM**: For rounting in react.
+- **React Router DOM**: For routing in react.
 - **React Bootstrap**: A library for styling webpages effectively in react
 - **Font Awesom**: A library to get icons and images of various brands and companies
 

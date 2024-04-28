@@ -20,6 +20,7 @@ import resumeData from '../resumeData.json';
 import '../css/about.css'; 
 
 const About = () => {
+  const username = process.env.REACT_APP_GITHUB_USERNAME;
   return (
     <Container className="about-container">
       <Row className="align-items-center about-row"> {/*centers the elements vertically withing the row  */}
@@ -42,10 +43,10 @@ const About = () => {
                   <Link to="/resume">
                     <Button className="custom-btn me-3">Check out my resume</Button>
                   </Link>
-                  <a href="https://github.com/sharathsolomon" target="_blank" rel="noopener noreferrer" className="icon-spacing me-3">
+                  <a href= {`https://github.com/${username}`} target="_blank" rel="noopener noreferrer" className="icon-spacing me-3">
                     <FontAwesomeIcon icon={faGithub} size="3x" />
                   </a>
-                  <a href="https://linkedin.com/in/sharathsolomon" target="_blank" rel="noopener noreferrer" className="icon-spacing">
+                  <a href={`https://linkedin.com/in/${username}`} target="_blank" rel="noopener noreferrer" className="icon-spacing">
                     <FontAwesomeIcon icon={faLinkedin} size="3x" />
                   </a>
                 </div>

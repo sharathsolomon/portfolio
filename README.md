@@ -30,6 +30,7 @@ To install these dependencies, run the following command in the root directory o
 ```bash
 npm install react-select
 npm install --save react-router-dom
+npm install react-bootstrap
 npm install bootstrap reactstrap
 npm install --save @fortawesome/fontawesome-svg-core
 npm install --save @fortawesome/free-brands-svg-icons

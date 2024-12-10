@@ -75,6 +75,7 @@ export default function Portfolio() {
                 //However, Medium provides an RSS feed for each user's content, which can be used to fetch the latest articles. 
                 //You can convert the RSS feed to JSON using a third-party service like RSS2JSON, and then fetch the articles from there.
                 const rssUrl = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${mediumUsername}`; //fetching article from medium
+                console.log(`Fetching Medium RSS feed from: ${rssUrl}`);
                 const articleResponse = await fetch(rssUrl, { cache: 'no-cache' });
                 if (!articleResponse.ok) { // throws error if fetching fails
                     throw new Error('Failed to fetch articles');

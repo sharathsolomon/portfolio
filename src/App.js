@@ -10,7 +10,6 @@ import {
 } from "react-router-dom";
 
 // Importing page components for different routes.
-import Home from './pages/Home';
 import About from './pages/About';
 import Portfolio from './pages/Portfolio';
 import Resume from './pages/Resume';
@@ -31,7 +30,7 @@ function App() {
             <Route path="/" element={<Navigate to="/about" />} /> {/* Redirect root to About */}
             <Route path="/about" element={<About />} />
             <Route path="/resume" element={<Resume />} />
-            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/projects" element={<Portfolio />} />
             <Route path="*" element={<Navigate to="/about" />} /> {/* Catch-all route */}
           </Routes>
         </div>

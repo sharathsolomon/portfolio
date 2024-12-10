@@ -17,9 +17,7 @@
                         {"entity":"Age",
                         "value":"28 years"},
                         {"entity":"Gender",
-                        "value":"Male"},
-                        {"entity":"Marital Status",
-                        "value":"Single"}],
+                        "value":"Male"}],
     "summary": "Highly skilled and results-driven data scientist with experience in working on real-world problems. Proficient in leveraging NLP techniques to extract insights from textual data and develop advanced NLP applications. Proven track record of successfully leading projects, designing and implementing innovative solutions, and collaborating with cross-functional teams. Adept at training and fine-tuning NLP models for various applications, with a strong focus on data analysis and drawing meaningful conclusions. Demonstrated expertise in developing knowledge mining systems, semantic search engines, and QA systems. Experienced in API development, containerization, and cloud deployment. Effective communicator with a talent for addressing client's technical concerns and leading data migration projects.",
     "experience": [
       {

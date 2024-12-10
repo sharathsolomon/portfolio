@@ -1,4 +1,3 @@
-
 import 'bootstrap/dist/css/bootstrap.min.css';  // Bootstrap for responsive design.
 import './App.css'; // Custom CSS for additional styling.
 
@@ -7,6 +6,7 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
+  Navigate // Importing Navigate to handle redirection.
 } from "react-router-dom";
 
 // Importing page components for different routes.
@@ -24,17 +24,18 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Header/>     {/*Header component displayed on all pages.*/}
+        <Header /> {/* Header component displayed on all pages. */}
         <div className="main-content">
-          {/*Routing to different pages.*/}
+          {/* Routing to different pages. */}
           <Routes>
-            {/* <Route path="/" element={<Home />} /> */}
+            <Route path="/" element={<Navigate to="/about" />} /> {/* Redirect root to About */}
             <Route path="/about" element={<About />} />
             <Route path="/resume" element={<Resume />} />
-            <Route path="/portfolio" element={<Portfolio />} />            
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="*" element={<Navigate to="/about" />} /> {/* Catch-all route */}
           </Routes>
         </div>
-        <Footer/> {/*Footer component displayed on all pages.*/}
+        <Footer /> {/* Footer component displayed on all pages. */}
       </div>
     </Router>
   );
